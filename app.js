@@ -1,9 +1,12 @@
 require("dotenv").config();
-const x = require("./helpers/initMongodb");
+const x= require("./helpers/initMongodb");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const userRouter = require("./routes/userRoutes");
+const authRouter = require("./routes/authRoutes");
+const {  checkUser,verifyAccessToken } = require("./middleware/authmiddleware");
+
 
 // Middlewares
 if (process.env.NODE_ENV === "development") {
@@ -13,17 +16,12 @@ if (process.env.NODE_ENV === "development") {
 app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
 
-const check= async (req,res,next)=>{
-  const  connected=true;
-  if(connected){
-    next()
-  }
-  else
-      res.end("not authorized");
-}
 
 
-app.use("/users",check, userRouter);
+
+app.use("/api/v1/auth",authRouter);
+
+app.use("/api/v1/users",verifyAccessToken,checkUser, userRouter);
 
 app.use("/", (req, res, next) => {
   console.log("Introuvable !");
