@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.use("/api/v1/auth",authRouter);
 
-app.use("/api/v1/users",verifyAccessToken,checkUser, userRouter);
+app.use("/api/v1/users",verifyAccessToken,checkUser,userRouter);
 
 app.use("/", (req, res, next) => {
   console.log("Introuvable !");
