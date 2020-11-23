@@ -42,7 +42,8 @@ const checkUser = (req, res, next) => {
       } else{
         console.log(decodedToken);
         let user = await User.findById(decodedToken.id);
-         
+          if (user.role=="US"){
+          next();}else{res.end("ma3andkch lha9 ");}
       }
     });
   } else {
