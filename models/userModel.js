@@ -42,7 +42,13 @@ const userSchema = mongoose.Schema({
     type: String
   },
   status: {
-    type: Boolean
+    type: String,
+    default:"en Attente"
+  },
+  enabled: {
+    type: Boolean,
+    default: false
+
   },
   numtel: {
     type: String,
@@ -66,6 +72,7 @@ const userSchema = mongoose.Schema({
     type: String
     
   }
+
 
 });
 
