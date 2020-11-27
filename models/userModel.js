@@ -27,7 +27,7 @@ const userSchema = mongoose.Schema({
   },
   cin: {
     type: String,
-    unique: true
+   
   
   },
   mfisc: {
@@ -48,6 +48,11 @@ const userSchema = mongoose.Schema({
   enabled: {
     type: Boolean,
     default: false
+
+  },
+  etat:{
+  type:String,
+  default:"Non Affecté"
 
   },
   numtel: {

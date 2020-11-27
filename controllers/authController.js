@@ -43,7 +43,7 @@ const createToken = (id) => {
 
 module.exports.signup_post = async (req, res) => {
   const newUser  = req.body;
-
+  console.log(req.body);
   try {
     const user = await User.create(newUser);
     const token = createToken(user._id);
