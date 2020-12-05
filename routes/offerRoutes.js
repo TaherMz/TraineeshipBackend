@@ -1,7 +1,6 @@
 const express = require("express");
 const offerController = require("../controllers/offerController");
 const router = express.Router();
-const {checkUseroffers} = require("../middleware/offermiddleware")
 
 router
   .route("/")
