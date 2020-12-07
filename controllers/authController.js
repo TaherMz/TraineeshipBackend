@@ -62,7 +62,7 @@ module.exports.login_post = async (req, res) => {
 
     const user = await User.login(email, password);
     
-    if(user.status=="en attente"){
+    if(user.status=="actif"){
 
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
