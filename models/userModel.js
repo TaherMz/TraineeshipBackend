@@ -44,11 +44,11 @@ const userSchema = mongoose.Schema({
   },
   status: {
     type: String,
-    default:"en Attente"
+    default:"en attente"
   },
   enabled: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: ""
 
   },
   etat:{

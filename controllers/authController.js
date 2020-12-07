@@ -59,13 +59,19 @@ module.exports.signup_post = async (req, res) => {
 module.exports.login_post = async (req, res) => {
   const { email, password } = req.body;
   try {
-   
+
     const user = await User.login(email, password);
+    
+    if(user.status=="en attente"){
+
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
-    
+
     res.status(200).json({ user: user._id, token,"msg":"succes" });
-   
+    }
+    else{
+      res.status(404).jason({"err":"your acount must be aprouved"});
+    }
   } catch (err) {
     const errors = handleErrors(err);
     res.status(400).json({ errors });

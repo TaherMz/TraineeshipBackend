@@ -9,9 +9,7 @@ const offerRouter = require("./routes/offerRoutes");
 const PostInOffer= require("./routes/posterRoutes");
 
 
-const {checkUseroffers} = require("./middleware/offermiddleware")
-const {checkUserPoster} = require("./middleware/postermiddlware")
-const {  checkUser,verifyAccessToken } = require("./middleware/authmiddleware");
+const {  verifyAccessToken } = require("./middleware/authmiddleware");
 
 // Middlewares
 if (process.env.NODE_ENV === "development") {
