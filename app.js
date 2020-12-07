@@ -9,9 +9,7 @@ const offerRouter = require("./routes/offerRoutes");
 const PostInOffer= require("./routes/posterRoutes");
 
 
-const {checkUseroffers} = require("./middleware/offermiddleware")
-const {checkUserPoster} = require("./middleware/postermiddlware")
-const {  checkUser,verifyAccessToken } = require("./middleware/authmiddleware");
+const {  verifyAccessToken } = require("./middleware/authmiddleware");
 
 // Middlewares
 if (process.env.NODE_ENV === "development") {
@@ -26,9 +24,9 @@ app.use(express.json());
 
 app.use("/api/v1/auth",authRouter);
 
-app.use("/api/v1/users",verifyAccessToken,checkUser,userRouter);
-app.use("/api/v1/offers",checkUseroffers,offerRouter);
-app.use("/api/v1/PostInOffer",checkUserPoster,PostInOffer);
+app.use("/api/v1/users",verifyAccessToken,userRouter);
+app.use("/api/v1/offers",offerRouter);
+app.use("/api/v1/PostInOffer",PostInOffer);
 
 
 app.use("/", (req, res, next) => {

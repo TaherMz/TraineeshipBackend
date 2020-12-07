@@ -20,7 +20,7 @@ const checkUserPoster= (req, res, next) => {
         } else{
           console.log(decodedToken);
           let user = await User.findById(decodedToken.id);
-            if (user.role=="E"||user.role=="US"){
+            if (user.role=="E"){
             next();}else{res.end("ma3andkch lha9 ");}
         }
       });

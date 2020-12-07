@@ -27,7 +27,7 @@ const userSchema = mongoose.Schema({
   },
   cin: {
     type: String,
-   
+    unique: true
   
   },
   mfisc: {
@@ -39,15 +39,16 @@ const userSchema = mongoose.Schema({
     type: String
   },
   code: {
-    type: String
+    type: String,
+    unique:true
   },
   status: {
     type: String,
-    default:"en Attente"
+    default:"en attente"
   },
   enabled: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: ""
 
   },
   etat:{
