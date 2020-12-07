@@ -25,10 +25,8 @@ cv :{
 },
 lettre_motivation:{
     type: String
-},
-mission:{
-    type: String
 }
+
 
 });
 
