@@ -17,7 +17,7 @@ telephone :{
 specialite:{
     type: String
 },
-date_demarrage_stage:{
+email:{
     type: String
 },
 cv :{
