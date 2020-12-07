@@ -32,19 +32,27 @@ const getAllOffers = async (req, res) => {
     } 
   };
   
-  const updateOffer = (req, res) => {
-    res.status(200).json({
-      message: "PATCH offer route has been executed",
-    });
-  };
-  
-  const getOffer = async (req, res) => {
+  const updateOffer =async(req, res) => {
     try{
       const offer = await Offer.findByIdAndUpdate(req.params.offerId, req.body, {
         new: true,
         runValidators: true
       });
-      console.log(offer,"Deleted");
+      res.status(200).json({
+      success: "PATCH offer route has been executed",
+      data : offer
+      }); 
+    } catch(err){      
+      err => console.log(err);
+    }
+  };
+
+
+ 
+  
+  const getOffer = async (req, res) => {
+    try{
+      const offer = await Offer.findById(req.params.offerId, req.body);
       res.status(200).json({
       success: "True",
       data : offer
