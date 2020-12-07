@@ -17,7 +17,7 @@ telephone :{
 specialite:{
     type: String
 },
-date_demarrage_stage:{
+email:{
     type: String
 },
 cv :{
@@ -25,10 +25,8 @@ cv :{
 },
 lettre_motivation:{
     type: String
-},
-mission:{
-    type: String
 }
+
 
 });
 
