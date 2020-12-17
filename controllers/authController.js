@@ -79,3 +79,41 @@ module.exports.login_post = async (req, res) => {
 };
 
 
+
+  // METHOD RESPONSIBLE FOR REFRESHING ACCESS TOKEN
+  module.exports.refreshToken = async (req, res, next) => {
+    try {
+      const { refreshToken } = req.body;
+      if (!refreshToken) throw createError.BadRequest();
+      const userId = await verifyRefreshToken(refreshToken);
+
+      const accessToken = await signAccessToken(userId);
+      const refToken = await signRefreshToken(userId);
+
+      res.send({ accessToken: accessToken, refreshToken: refToken });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // METHOD RESPONSIBLE FOR LOGOUT
+  module.exports.logout= async (req, res, next) => {
+    try {
+      const { refreshToken } = req.body;
+      if (!refreshToken) throw createError.BadRequest();
+      const userId = await verifyRefreshToken(refreshToken);
+      client.DEL(userId, (err, val) => {
+        if (err) {
+          console.log(err.message);
+          throw createError.InternalServerError();
+        }
+        console.log(val);
+        res.sendStatus(204);
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+
+

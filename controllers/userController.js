@@ -42,7 +42,7 @@ const updateUser =async(req, res) => {
     res.status(200).json({
     success: "PATCH user route has been executed",
     data : user
-    }); 
+    });
   } catch(err){      
     err => console.log(err);
   }
