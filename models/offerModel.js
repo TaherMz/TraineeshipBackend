@@ -14,14 +14,17 @@ const offerSchema = mongoose.Schema({
     mission : {
         type: String
     },
-    periode: {
-        type: String,
+    datedebut: {
+        type: Date,
+    },
+    datefin: {
+        type: Date,
     },
     status: {
         type: String,
         default:"en Attente"
       },
-      enabled: {
+    enabled: {
         type: Boolean,
         default: false
     
