@@ -25,6 +25,17 @@ cv :{
 },
 lettre_motivation:{
     type: String
+},
+id_offer:{
+type:String,
+unique:true,
+},
+mission:{
+    type: String,
+    unique:true
+},
+nomsociete:{
+    type:String
 }
 
 
