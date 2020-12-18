@@ -11,9 +11,7 @@ const offerSchema = mongoose.Schema({
     tel :{
         type: String
     },
-    titremission:{
-        type:String
-    },
+   
     mission : {
         type: String
     },

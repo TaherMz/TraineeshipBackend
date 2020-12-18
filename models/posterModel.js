@@ -26,9 +26,7 @@ cv :{
 lettre_motivation:{
     type: String
 },
-titremission:{
-    type:String
-},
+
 mission:{
     type: String,
     unique:true
