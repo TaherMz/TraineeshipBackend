@@ -15,7 +15,21 @@ const getAllMyOffers = async (req, res) => {
         })
     }
   };
-  
+  const getAllOffersposted = async (req, res) => {
+    try{
+      const posters = await Poster.find();
+      res.status(200).json({
+      success: "True",
+      data : posters
+      }); 
+    } catch(err){
+          res.status(404).json({
+            success: "false",
+          msg:err
+          
+        })
+    }
+  };
   //To Post in offer 
   const PostInOffer = async (req, res) => {
     const newposter = new Poster(req.body);
@@ -37,6 +51,7 @@ const getAllMyOffers = async (req, res) => {
 
   
   module.exports = {
+    getAllOffersposted,
     getAllMyOffers,
     PostInOffer,
   };
