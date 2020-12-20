@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const nodemailer = require('nodemailer');
 
 const getAllUsers = async (req, res) => {
   try{
@@ -74,11 +75,50 @@ const deleteUser = async (req, res) => {
     err => console.log(err);
   }
 };
+const Mailer = async (req,res)=>{
+
+
+////mailing
+// create reusable transporter object using the default SMTP transport
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  host: "smtp.gmail.com",
+     auth: {
+          user: process.env.EMAIL,
+          pass: process.env.PASSWORDEM,
+       },
+  secure: true,
+  });
+  
+  let mailOptions ={
+    from:'traineeship2021@gmail.com',
+    to:req.body.to,
+    subject:req.body.sub,
+    text:req.body.text
+  };
+
+
+
+  transporter.sendMail(mailOptions, function (err, info) {
+    if(err){
+      console.log(err);}
+    
+      res.status(200).send({message: "main send"});
+ });
+
+
+
+
+
+};
+
 
 module.exports = {
+  Mailer,
   getAllUsers,
   createUser,
   updateUser,
   getUser,
   deleteUser,
+ 
 };

@@ -21,10 +21,9 @@ app.use(express.json());
 
 
 
+app.use("/api/v1/auth",verifyAccessToken,authRouter);
 
-app.use("/api/v1/auth",authRouter);
-
-app.use("/api/v1/users",verifyAccessToken,userRouter);
+app.use("/api/v1/users",userRouter);
 app.use("/api/v1/offers",offerRouter);
 app.use("/api/v1/PostInOffer",PostInOffer);
 
@@ -37,8 +36,15 @@ app.use("/", (req, res, next) => {
   });
 });
 
+
+ 
+
+
+
 // Running the server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`App running on port: ${PORT}`);
 });
+
+
