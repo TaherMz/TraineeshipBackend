@@ -47,6 +47,22 @@ const getAllMyOffers = async (req, res) => {
     } 
   };
   
+  ////patch............
+  const updatePoster =async(req, res) => {
+    try{
+      const poster = await Poster.findByIdAndUpdate(req.params.posterId, req.body, {
+        new: true,
+        runValidators: true
+      });
+      res.status(200).json({
+      success: "PATCH Poster route has been executed",
+      data : Poster
+      }); 
+    } catch(err){      
+      err => console.log(err);
+    }
+  };
+  
   
 
   
@@ -54,4 +70,5 @@ const getAllMyOffers = async (req, res) => {
     getAllOffersposted,
     getAllMyOffers,
     PostInOffer,
+    updatePoster,
   };

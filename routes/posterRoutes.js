@@ -6,6 +6,9 @@ router
   .route("/")
   .post(posterController.PostInOffer)
   .get(posterController.getAllOffersposted)
+  router
+  .route("/:posterId")
+  .patch(posterController.updatePoster)
 router
   .route("/getAllmyoffers/:nom")
   .get(posterController.getAllMyOffers)

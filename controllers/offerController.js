@@ -32,20 +32,20 @@ const getAllOffers = async (req, res) => {
     } 
   };
   
-  const updateOffer =async(req, res) => {
-    try{
-      const offer = await Offer.findByIdAndUpdate(req.params.offerId, req.body, {
-        new: true,
-        runValidators: true
-      });
-      res.status(200).json({
-      success: "PATCH offer route has been executed",
-      data : offer
-      }); 
-    } catch(err){      
-      err => console.log(err);
-    }
-  };
+    const updateOffer =async(req, res) => {
+      try{
+        const offer = await Offer.findByIdAndUpdate(req.params.offerId, req.body, {
+          new: true,
+          runValidators: true
+        });
+        res.status(200).json({
+        success: "PATCH offer route has been executed",
+        data : offer
+        }); 
+      } catch(err){      
+        err => console.log(err);
+      }
+    };
 
 
  
