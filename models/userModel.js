@@ -47,8 +47,13 @@ const userSchema = mongoose.Schema({
     default:"en attente"
   },
   enabled: {
-    type: String,
-    default: ""
+    type: Boolean,
+    default: false
+
+  },
+  test: {
+    type: Boolean,
+    default: false
 
   },
   etat:{
@@ -68,6 +73,10 @@ const userSchema = mongoose.Schema({
     type: String
     
   },
+  etat:{
+    type:String,
+    default:"Non Affecté"
+  },
 
   secteuractivite: {
     type: String
@@ -76,7 +85,8 @@ const userSchema = mongoose.Schema({
   attestationjurdique: {
     type: String
     
-  }
+  },
+
 
 
 });
