@@ -31,22 +31,22 @@ type:String,
 },
 mission:{
     type: String,
-    unique:true
+    
 },
 nomsociete:{
     type:String
 },
+
 etat:{
     type:String,
     default:"Non Affecté"
   },
-  enabled: {
-    type: Boolean,
-    default: false
-
-  }
 
 
+enabled:{
+    type:Boolean,
+    default:false
+}
 });
 
 

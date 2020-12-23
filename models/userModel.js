@@ -56,6 +56,10 @@ const userSchema = mongoose.Schema({
     default: false
 
   },
+  etat:{
+    type:String,
+    default:"Non Affecté"
+  },
   numtel: {
     type: String,
     unique: true,
