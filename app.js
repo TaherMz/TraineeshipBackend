@@ -8,6 +8,9 @@ const authRouter = require("./routes/authRoutes");
 const offerRouter = require("./routes/offerRoutes");
 const PostInOffer= require("./routes/posterRoutes");
 
+const fileupload = require('express-fileupload')
+
+
 
 const {  verifyAccessToken } = require("./middleware/authmiddleware");
 
@@ -18,6 +21,8 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
+app.use(fileupload())
+
 
 
 

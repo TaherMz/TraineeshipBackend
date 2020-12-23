@@ -1,4 +1,12 @@
 const Poster = require("../models/posterModel");
+const fileupload = require('express-fileupload')
+const express = require("express");
+
+const path = require('path')
+const app = express();
+
+app.use(fileupload())
+
 //To get all offers ur posted in by the name of curent user passed in the url ofter the "/" !!///////////////
 const getAllMyOffers = async (req, res) => {
     try{
@@ -32,8 +40,16 @@ const getAllMyOffers = async (req, res) => {
   };
   //To Post in offer 
   const PostInOffer = async (req, res) => {
+
     const newposter = new Poster(req.body);
+
     try{
+      const file = req.files.cv
+      console.log(file)
+      const savePath = path.join(__dirname,'/uploads',file.name)
+       const mfile = await file.mv(savePath)
+        newposter.cv=savePath
+        console.log(newposter.cv)
       const poster = await newposter.save();
       res.status(201).json({
         success: "true",
