@@ -19,14 +19,14 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`uploads`));
 app.use(express.json());
 app.use(fileupload())
 
 
 
 
-app.use("/api/v1/auth",verifyAccessToken,authRouter);
+app.use("/api/v1/auth",authRouter);
 
 app.use("/api/v1/users",userRouter);
 app.use("/api/v1/offers",offerRouter);

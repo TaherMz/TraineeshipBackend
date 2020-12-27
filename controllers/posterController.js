@@ -46,9 +46,8 @@ const getAllMyOffers = async (req, res) => {
     try{
       const file = req.files.cv
       console.log(file)
-      const savePath = path.join(__dirname,'/uploads',file.name)
-       const mfile = await file.mv(savePath)
-        newposter.cv=savePath
+      const savePath = path.join(__dirname,'/../uploads',file.name)
+        newposter.cv=file.name;
         console.log(newposter.cv)
       const poster = await newposter.save();
       res.status(201).json({
@@ -79,7 +78,7 @@ const getAllMyOffers = async (req, res) => {
     }
   };
   
-  
+ 
 
   
   module.exports = {
