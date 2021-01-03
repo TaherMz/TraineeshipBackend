@@ -9,6 +9,7 @@ router
   router
   .route("/:posterId")
   .patch(posterController.updatePoster)
+  .delete(posterController.deletePost)
 router
   .route("/getAllmyoffers/:nom")
   .get(posterController.getAllMyOffers)

@@ -77,6 +77,20 @@ const getAllMyOffers = async (req, res) => {
       err => console.log(err);
     }
   };
+
+
+  const deletePost = async (req, res) => {
+    try{
+      const post = await Poster.findByIdAndDelete(req.params.posterId);
+      console.log(post,"Deleted");
+      res.status(200).json({
+      success: "True",
+      data : post
+      }); 
+    } catch(err){
+      err => console.log(err);
+    }
+  };
   
  
 
@@ -86,4 +100,5 @@ const getAllMyOffers = async (req, res) => {
     getAllMyOffers,
     PostInOffer,
     updatePoster,
+    deletePost,
   };

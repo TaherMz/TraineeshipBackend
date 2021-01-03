@@ -27,7 +27,6 @@ app.use(fileupload())
 
 
 app.use("/api/v1/auth",authRouter);
-
 app.use("/api/v1/users",userRouter);
 app.use("/api/v1/offers",offerRouter);
 app.use("/api/v1/PostInOffer",PostInOffer);
