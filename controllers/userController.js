@@ -106,11 +106,10 @@ const transporter = nodemailer.createTransport({
       res.status(200).send({message: "main send"});
  });
 
-
-
-
-
 };
+
+
+
 
 
 module.exports = {
