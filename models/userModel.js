@@ -39,8 +39,7 @@ const userSchema = mongoose.Schema({
     type: String
   },
   code: {
-    type: String,
-    unique:true
+    type: String
   },
   status: {
     type: String,

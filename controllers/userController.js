@@ -1,6 +1,8 @@
 const User = require("../models/userModel");
 const nodemailer = require('nodemailer');
 
+
+
 const getAllUsers = async (req, res) => {
   try{
     const users = await User.find();
@@ -16,7 +18,7 @@ const getAllUsers = async (req, res) => {
       })
   }
 };
-
+/*
 const createUser = async (req, res) => {
   const newUser = new User(req.body);
   try{
@@ -31,7 +33,7 @@ const createUser = async (req, res) => {
     msg:err
     });
   } 
-};
+};*/
 
 
 const updateUser =async(req, res) => {
@@ -115,7 +117,6 @@ const transporter = nodemailer.createTransport({
 module.exports = {
   Mailer,
   getAllUsers,
-  createUser,
   updateUser,
   getUser,
   deleteUser,

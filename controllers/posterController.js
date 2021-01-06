@@ -46,21 +46,22 @@ const getAllMyOffers = async (req, res) => {
     try{
       const file = req.files.cv
       console.log(file)
-      const savePath = path.join(__dirname,'/../uploads',file.name)
+      const savePath = path.join(__dirname,'../uploads',file.name)
+       const mfile = await file.mv(savePath)
         newposter.cv=file.name;
         console.log(newposter.cv)
-      const poster = await newposter.save();
-      res.status(201).json({
-        success: "true",
-        data : poster
-      });
-    } catch(err) {
-      res.status(404).json({
-        success: "false",
-      msg:err
-      });
-    } 
-  };
+     const poster = await newposter.save();
+     res.status(201).json({
+       success: "true",
+       data : poster
+     });
+   } catch(err) {
+     res.status(404).json({
+       success: "false",
+     msg:err
+     });
+   } 
+ };
   
   ////patch............
   const updatePoster =async(req, res) => {
